@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>San Valentín 💗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #f6b8c5, #d9768b);
+      font-family: "Arial", sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.35);
+      padding: 30px 26px;
+      border-radius: 26px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 60px rgba(96,40,60,0.25);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      color: #2f2730;
+    }
+
+    p {
+      font-size: 15px;
+      color: #4c3b3b;
+      margin-top: 8px;
+    }
+
+    .pill {
+      margin: 16px auto;
+      padding: 12px 18px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .actions {
+      position: relative;
+      height: 80px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      border: none;
+      padding: 10px 24px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .btn--yes {
+      background: #2f2730;
+      color: #ffe7ef;
+      box-shadow: 0 10px 24px rgba(39,18,32,0.35);
+    }
+
+    .btn--yes:hover {
+      transform: scale(1.05);
+    }
+
+    .btn--no {
+      background: #f0d5dd;
+      color: #5a4149;
+      position: absolute;
+      left: 55%;
+      top: 0;
+    }
+
+    .status {
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(76,59,59,0.7);
+    }
+    .img {
+  width: min(60%, 220px);
+  display: block;
+  margin: 16px auto;
+  border-radius: 14px;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Holiii mi Eliii 💌</h1>
+    <p>Te tengo una pregunta...</p>
+
+    <div class="pill">
+      ¿Quieres ser mi San Valentín mi viditaaa? 💗
+    </div>
+     <img src="img/snoopy.jpeg" alt="Pompompurin con flores" class="img">
+
+    <div class="actions">
+      <button class="btn btn--yes" id="yesBtn">Sí 💗</button>
+      <button class="btn btn--no" id="noBtn">No</button>
+    </div>
+
+    <p class="status" id="status">El botón “No” está nervioso…</p>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const status = document.getElementById("status");
+    const yesBtn = document.getElementById("yesBtn");
+
+    const mensajes = [
+      "¿Segura? 😳",
+      "Casi me atrapas 😅",
+      "Ese no no quiere salir",
+      "Vamos… di que sí 💗",
+      "Imposible decir que no 😈"
+    ];
+
+    function moverNo() {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 120 - 60;
+
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+      status.textContent = mensajes[Math.floor(Math.random() * mensajes.length)];
+    }
+
+    // PC
+    noBtn.addEventListener("mouseenter", moverNo);
+
+    // Celular
+    noBtn.addEventListener("touchstart", moverNo);
+
+    // Botón SÍ → index2
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "index2.html";
+    });
+  </script>
+
+</body>
+</html>
